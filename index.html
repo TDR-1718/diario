@@ -41,6 +41,8 @@
 
           windows.guardar = async function () {
 
+            console.log("guardando...");
+
             let text = 
             document.getElementbild("texto").value;
             
@@ -54,7 +56,7 @@
 async function carga()  {
 
     const querysnapshot = 
-    await getdocs(collection(db
+    await getdocs(collection(db,
         "diario"));
 
 
@@ -86,7 +88,7 @@ async function carga()  {
 <body>
 <input type="text" id="texto">
 
-<button onclick="guardar">
+<button onclick="guardar()">
     </button>
 
 <div id="diario"></div>
