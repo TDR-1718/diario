@@ -2,77 +2,29 @@
 <html lang="es">
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <script type="module">
-        import {initializeapp} from
-        "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-        import{
-            getfirestore,
-            collection,
-            addDoc,
-            getDocs,
-        } from
-        "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBGwO7ifWo3Txoq7ATSHlHR1m_aLJfRYpU",
+    authDomain: "diario-174a2.firebaseapp.com",
+    projectId: "diario-174a2",
+    storageBucket: "diario-174a2.firebasestorage.app",
+    messagingSenderId: "634893253543",
+    appId: "1:634893253543:web:0958752e2a1e6cefe99482",
+    measurementId: "G-T1KJDD33J1"
+  };
 
-        const firebaseconfig = { 
-  apiKey: "AIzaSyBGwO7ifWo3Txoq7ATSHlHR1m_aLJfRYpU",
-  authDomain: "diario-174a2.firebaseapp.com",
-  projectId: "diario-174a2",
-  storageBucket: "diario-174a2.firebasestorage.app",
-  messagingSenderId: "634893253543",
-  appId: "1:634893253543:web:0958752e2a1e6cefe99482",
-          };
-          const app = 
-          initializeapp(firebbaseconfig);
-          const db = getfirestore(app);
-
-          windows.guardar = async function () {
-
-            console.log("guardando...");
-
-            let text = 
-            document.getElementbild("texto").value;
-            
-            await adddoc(collection(db,
-                "diario"), {
-                    texto:texto,
-                    fecha: new Date()
-        });
-    cargar();
-};
-async function carga()  {
-
-    const querysnapshot = 
-    await getdocs(collection(db,
-        "diario"));
-
-
-        let contenido = "";
-
-        querysnapshot.foreach((doc)  =>  {
-            contenido += `<p>$
-                {doc.data().texto}<p>`;
-        });
-
-        document.getelementbyld("diario").innerHTML =  
-        contenido;
-}
-        cargar();
-        
-    </script>
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 <head>
 
 
