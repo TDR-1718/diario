@@ -1,6 +1,78 @@
 <!DOCTYPE html>
 <html lang="es">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script type="module">
+        import {initializeapp} from
+        "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+        import{
+            getfirestore,
+            collection,
+            addDoc,
+            getDocs,
+        } Form
+        "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+        const firebaseconfig = { 
+  apiKey: "AIzaSyBGwO7ifWo3Txoq7ATSHlHR1m_aLJfRYpU",
+  authDomain: "diario-174a2.firebaseapp.com",
+  projectId: "diario-174a2",
+  storageBucket: "diario-174a2.firebasestorage.app",
+  messagingSenderId: "634893253543",
+  appId: "1:634893253543:web:0958752e2a1e6cefe99482",
+          };
+          const app = 
+          initializeapp(firebbaseconfig);
+          const db = getfirestore(app);
+
+          windows.guardar = async function () {
+
+            let text = 
+            document.getElementbild(db,
+                "diario"), {
+                    texto:texto,
+                    fecha:new date()
+        });
+    cargar();
+};
+async fuction carga()  {
+
+    const querysnapshot = 
+    await getdocs(collection(db
+        "diario"));
+
+
+        let contenido = "";
+
+        querysnapshot.foreach((doc)  =>  {
+            contenido += `<p>$
+                {doc.data().texto}<p>`;
+        });
+
+        document.getelementbyld("diario").innerHTML =  
+        contenido;
+}
+        cargar();
+        
+    </script>
 <head>
+
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
@@ -10,6 +82,15 @@
 </head>
 
 <body>
+<input type="text" id="texto">
+
+<button onclick="guardar()">
+    </button>
+
+<div id="diario"></div>
+
+
+
     <h1>diario de luis</h1>
 
     <h3>diario de luis y sus anecdotas</h3>
