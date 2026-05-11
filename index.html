@@ -24,7 +24,7 @@
             collection,
             addDoc,
             getDocs,
-        } Form
+        } from
         "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
         const firebaseconfig = { 
@@ -42,14 +42,16 @@
           windows.guardar = async function () {
 
             let text = 
-            document.getElementbild(db,
+            document.getElementbild("texto").value;
+            
+            await adddoc(collection(db,
                 "diario"), {
                     texto:texto,
-                    fecha:new date()
+                    fecha: new Date()
         });
     cargar();
 };
-async fuction carga()  {
+async function carga()  {
 
     const querysnapshot = 
     await getdocs(collection(db
